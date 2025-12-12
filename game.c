@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:32:49 by fsitter           #+#    #+#             */
-/*   Updated: 2025/12/12 12:18:40 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/12/12 12:38:06 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	my_hook2(t_windata win);
 
 int	start_game(t_mapdata *mapdata, t_windata *win)
 {
-	t_imagedata *img = ft_calloc(5, sizeof(t_imagedata)); // SAFE allocation
-	if (!img)
-		return (FALSE);
+	t_imagedata img[5];
 	win->mapdata = mapdata;
 	win->img = img;
 	win->win_ptr = NULL;
@@ -44,9 +42,6 @@ int	start_game(t_mapdata *mapdata, t_windata *win)
 		return (FALSE);
 	}
 	fillwindow(win);
-	ft_printf("DEBUG: mlx=%p win=%p img=%p map=%p w=%d h=%d\n", win->mlx_ptr,
-		win->win_ptr, win->img, win->mapdata, mapdata->map_width_x,
-		mapdata->map_height_y);
 	if (!win->mlx_ptr || !win->win_ptr || !win->img || !win->mapdata)
 	{
 		ft_printf("NULL pointer detected!\n");
@@ -144,7 +139,6 @@ void	fillimg(t_windata *win, int i, int j, int nr)
 
 void	my_hook2(t_windata win)
 {
-	ft_printf("HOOK CALLED with param=%p\n", &win);
 	mlx_hook(win.win_ptr,2, 1, key, &win);
 	mlx_hook(win.win_ptr, 17, 0, kill_all, &win);
 	mlx_loop(win.mlx_ptr);
