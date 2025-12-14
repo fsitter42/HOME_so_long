@@ -1,0 +1,5 @@
+use header
+rename myhook function accordingly
+textures AAA
+
+maybe make 1920 1080 texture and deactivate map validation
