@@ -29,7 +29,7 @@ $(NAME): $(OBJECTS)
 
 clean:
 	$(RM) $(OBJECTS)
-	$(MAKE) -C mlx_linux clean
+#	$(MAKE) -C mlx_linux clean
 	$(MAKE) -C libft clean
 
 fclean: clean
