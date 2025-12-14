@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:32:49 by fsitter           #+#    #+#             */
-/*   Updated: 2025/12/12 12:38:06 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/12/14 14:42:11 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	start_game(t_mapdata *mapdata, t_windata *win)
 		ft_printf("NULL pointer detected!\n");
 		return (1);
 	}
-	my_hook2(*win);
+	my_hook(*win);
 	if (mlx_loop(win->mlx_ptr))
 		return (del_dest_cl(win, 1), FALSE);
 	del_dest_cl(win, 0);
@@ -85,15 +85,15 @@ void	del_dest_cl(t_windata *win, int code)
 
 void	my_xpm_to_img(t_windata *win)
 {
-	win->img[0].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/BG.xpm",
+	win->img[0].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/AAA.xpm",
 			&win->img->img_w_x, &win->img->img_h_y);
-	win->img[1].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/W.xpm",
+	win->img[1].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/AAA.xpm",
 			&win->img->img_w_x, &win->img->img_h_y);
 	win->img[2].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/P.xpm",
 			&win->img->img_w_x, &win->img->img_h_y);
-	win->img[3].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/NV.xpm",
+	win->img[3].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/AAA.xpm",
 			&win->img->img_w_x, &win->img->img_h_y);
-	win->img[4].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/E.xpm",
+	win->img[4].img = mlx_xpm_file_to_image(win->mlx_ptr, "./textures/AAA.xpm",
 			&win->img->img_w_x, &win->img->img_h_y);
 	if (!win->img[0].img || !win->img[1].img || !win->img[2].img
 		|| !win->img[3].img || !win->img[4].img)
@@ -137,9 +137,4 @@ void	fillimg(t_windata *win, int i, int j, int nr)
 		* PIXEL, i * PIXEL);
 }
 
-void	my_hook2(t_windata win)
-{
-	mlx_hook(win.win_ptr,2, 1, key, &win);
-	mlx_hook(win.win_ptr, 17, 0, kill_all, &win);
-	mlx_loop(win.mlx_ptr);
-}
+

@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 19:06:29 by fsitter           #+#    #+#             */
-/*   Updated: 2025/12/12 11:58:32 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/12/14 14:30:35 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <fcntl.h>
 # include <mlx.h>
 
+#include <X11/Xlib.h>
+#include <X11/XKBlib.h>
+#include <X11/extensions/XTest.h>
+#include <unistd.h>
+
 // global MACROS
 # define VALIDSIGN "PCE01"
 # define PLAYER 'P'
@@ -30,7 +35,7 @@
 # define TRUE 1
 # define FALSE 0
 # define EXTENSION ".ber"
-# define PIXEL 25
+# define PIXEL 51
 # define IMAGES 5
 # define WINNAME "NETVRK Minerunner/Metaverse 2D"
 # define RESOX 1920

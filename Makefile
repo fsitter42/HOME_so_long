@@ -15,7 +15,7 @@ CC = cc
 
 RM = rm -f
 
-MLX_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
+MLX_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -lXtst 
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
